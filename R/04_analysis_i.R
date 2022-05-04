@@ -9,7 +9,7 @@ library("cowplot", quietly = TRUE)
 library("ggthemes", quietly = TRUE)
 library("broom")
 library("hrbrthemes")
-library("ggtech")
+#library("ggtech")
 library("pheatmap")
 library("ggrepel")
 
