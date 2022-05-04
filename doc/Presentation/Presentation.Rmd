@@ -25,6 +25,8 @@ solution, include that in your presentation as an example
 *  Perhaps consider a graphical representation of your process going from raw to
 analysis-ready data
 
+* The data was : https://github.com/ramhiser/datamicroarray/blob/master/data/west.RData
+
 
 ### Materials and Methods
 
