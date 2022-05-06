@@ -1,3 +1,11 @@
-# 2022_group20_final_project
+# 2022 Group Number 20 Final Project Folder 
 
-A *Public* Repository with A project, A presentation, A package and a Shiny App 
+A *Public* Repository :
+
+### Contents
+
++ A project
++ A presentation
++ A package 
++ A Shiny App 
++ A Github ReadMe
