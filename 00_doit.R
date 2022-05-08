@@ -9,15 +9,7 @@ source(file = "R/05_analysis_ii.R")
 source(file = "R/99_project_functions.R")
 
 # + Turn the RMarkdown file into an ioslides presentation
-# + knitr at the end of this script to run the RMarkdown Presentation using ((knit))
-#knitr::knit("doc/Presentation/Presentation.Rmd")
+knitr::knit("doc/Presentation.Rmd")
 
 # + Turn the R Script into an RMarkdown file using ((spin))
 #knitr::spin(hair = "R/02_clean.R", knit = TRUE)
-
-
-# Run the presentation from the R Script. 
-# Generate the R package and the Shiny App separately. 
-# The HPC Cluster is different from the Package and different from the Shiny App 
-# so there is no need to link these. 
-# They can be separate.
