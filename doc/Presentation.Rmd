@@ -3,11 +3,13 @@ title: "Final Project"
 author: "Miss Oriade Latifah Simpson"
 date: "Spring 2022"
 output:
+  slidy_presentation: default
+  pdf_document: default
   html_document: default
-  
 ---
 
 ### Group Number 20
+
 slidy_presentation: default
 Note: ioslides_presentation not working, only slidy_presentation working at the moment. 
 *html_document ioslides_presentation. 10 slides in 10 minutes.
@@ -18,7 +20,7 @@ Note: ioslides_presentation not working, only slidy_presentation working at the 
 
 The data chosen came from a research paper called: 'Predicting the clinical status of human breast cancer by using gene expression profiles'
 
-This paper was written by Mike West, Carrie blanchette , Holly Dressman et al. 
+This paper was written by Mike West, Carrie Blanchette, Holly Dressman et al. 
 
 Neoplastic diseases are ones which cause tumours to grow in the body.
 
@@ -32,6 +34,7 @@ In total, 49 tumours were classified as eostregen receptor positive or eostregen
 
 Note, the gene expression data is based on the eostregen receptor genes. 
 
+***
 
 This information may be given to doctors in order to help them make better clinical decisions when treating patients. 
 
@@ -57,6 +60,8 @@ The process of arriving at results in a reproducible manner was important, espec
 
 ![](Image/FlowChart2022.png){width=75%}
 
+***
+
 Over thirteen packages were used to aid in this analysis pipeline, including packages in the tidyverse, golem, reactable and packages for styling the code such as the stylr package. 
 
 The statistical methods used in the research paper included binary regression models, singular value decompositions and stochastic regularization using Bayesian Analysis. 
@@ -74,27 +79,47 @@ The modelling methods used were principal components analysis, K-Means clusterin
 The  data was processed several in stages. 
 
 During the first round of analysis, the unexpressed genes were not filtered out of my initial analysis.
-At this point in the analysis I had not performed a thorough comparison with the statistical methods used in the research paper. 
+
+I was yet to perform a thorough comparison with the statistical methods used in the research paper. 
+
+
+![](Image/first_visualisation1.png){width=45%} ![](Image/first_visualisation3.png){width=45%} 
+
+
+There was a lot of noise due to genes that were not significantly expressed being included in the analysis. 
+The analysis was run again once these genes had been filtered out.
+
+
+![](../results/visualisation1.png){width=45%} ![](../results/visualisation3.png){width=45%} 
+
+In the research paper, the researchers performed a pairwise factor analysis of 100 genes based on lymph node status.(**left**)
+
+In comparison with the research paper, the Principal Component Analysis visualisation I created was slightly improved in terms of the colour scheme chosen and the size of the points.(**right**)
+
+![](Image/factor_analsis.png){width=45%} ![](../results/visualisation2.png){width=45%}
 
 
 
-there was a lot of noise and so the analysis was run again. 
+PCA, an unsupervised learning method which finds patterns in the data was used, because it simplifies the complexity in high-dimensional datasets by transforming the data into fewer dimensions.
+These fewer dimensions, or principal components act as summaries of the features.
 
-The genes that were not significant enough were filtered out and re plotted. 
+Results for PCA and K-means clustering were produced using ggplot2 and ggthemes packages. 
 
-Principal component analysis simplifies the complexity in high-dimensional data by transforming the data into fewer dimensions, which act as summaries of features.
+k-means clustering is an unsupervised machine learning algorithm which aims to partition a certian number of observations into k (assigned) clusters in which each observation belongs to the cluster with the nearest mean (cluster centers or cluster centroid).
 
-PCA is an unsupervised learning method which finds patterns without reference to prior knowledge about whether the samples come from different groups.
+![](../results/visualisation5.png){width=45%} ![](../results/visualisation6.png){width=45%}
 
-Results for PCA and K-means clustering were produced using ggplot2 and ggthemes packages.  In comparison with the research paper, the visualisation was slightly improved in terms of the colour scheme chosen and the size of the points.
 
-In addition to this Github repository and the powerpoint presentation, I created a package called Twenty. The package was named after the group number allocated in the R for Bio Data Science class. This package is available for download from the Github repository at the following link : https://github.com/rforbiodatascience22/Twenty. The package contains four functions and example subset datasets to be used for each function. 
+In addition to this Github repository and the presentation, I created a package called `Twenty`. The package was named after the group number allocated in the R for Bio Data Science class. This package is available for download from the Github repository at the following link: https://github.com/rforbiodatascience22/Twenty. The package contains four functions and example subset datasets to be used for each function. 
 
-I also produced a Shiny Application called ShinyTwenty. This application can be found at the Github repository: https://github.com/rforbiodatascience22/ShinyTwenty . The application shows rendered interactive plots and visualisations of the data.
+I also produced a Shiny Application called `ShinyTwenty`. This application can be found at the Github repository: https://github.com/rforbiodatascience22/ShinyTwenty. The application shows rendered interactive plots and visualisations of the data.
 
 ***
 
 ### Discussion 
 
-It was computationally intensive to perform the modelling part of the analysis given there were 7130 features and 49 observations of data. Because of this computational expense I found it difficult to find a workaround to deploy the application online. 
+It was computationally intensive to perform the modelling part of the analysis given there were 7130 features and 49 observations of data. Because of this computational expense I had challenges in finding a workaround to deploy the application online. 
+
+***
+
 
