@@ -31,8 +31,8 @@ west_data_nested
 # 3. Fit logistic regression models on the data.
 west_data_nested_mod <- west_data_nested %>%
   mutate(model = map(data, ~ glm(value ~ expression_level,
-                                 data = .,
-                                 family = binomial(link = "logit")
+    data = .,
+    family = binomial(link = "logit")
   )))
 west_data_nested_mod
 
@@ -68,23 +68,23 @@ gene_expr_data_long_nested <- west_data_long_nested %>%
       identified_as == "Significant" ~ Gene,
       identified_as == "Non-significant" ~ ""
     ),
-    
+
     # Calculate negative logs of p-values
     neg_log10_p = -log10(p.value)
   )
 
 
 
-# 6.5 Select only the data with the lowest p values ( First only the significant genes ) 
-gene_expr_data_long_nested  <- gene_expr_data_long_nested %>% 
-  filter(identified_as == "Significant") %>% 
-  arrange(p.value) %>% 
+# 6.5 Select only the data with the lowest p values ( First only the significant genes )
+gene_expr_data_long_nested <- gene_expr_data_long_nested %>%
+  filter(identified_as == "Significant") %>%
+  arrange(p.value) %>%
   # Get the first 100 rows.
   head(100)
 
 gene_expr_data_long_nested
 
-# write out this data. 
+# write out this data.
 gene_expr_data_long_nested
 
 
@@ -97,7 +97,7 @@ ggsave("results/visualisation1.png", viz1, width = 5, height = 5)
 
 # Write data --------------------------------------------------------------
 
-my_data_clean_aug <- gene_expr_data_long_nested %>% 
+my_data_clean_aug <- gene_expr_data_long_nested %>%
   select("Gene", "term", "estimate", "std.error", "statistic", "p.value", "conf.low", "conf.high")
 
 my_data_clean_aug
@@ -108,4 +108,3 @@ write_tsv(
   x = my_data_clean_aug,
   file = "data/03_my_data_clean_aug.tsv"
 )
-

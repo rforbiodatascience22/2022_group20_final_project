@@ -12,9 +12,9 @@ library(cowplot)
 convert_to_long <- function(the_dataset) {
   the_dataset %>%
     pivot_longer((c(str_c("gene_", seq(1, 7129)))),
-                 names_to = "Gene",
-                 values_to = "expression_level",
-                 values_drop_na = TRUE
+      names_to = "Gene",
+      values_to = "expression_level",
+      values_drop_na = TRUE
     )
 }
 
@@ -25,7 +25,7 @@ convert_to_long <- function(the_dataset) {
 
 make_nested <- function(long_dataset, Gene) {
   long_dataset %>%
-    # group the data by genes and put it in double brackets. 
+    # group the data by genes and put it in double brackets.
     group_by(Gene) %>%
     # create a nested tibble composed of outcome and expression level.
     nest(data = c(value, expression_level))
@@ -72,7 +72,7 @@ make_manhattan <- function(wrangled_dataset) {
 # PCA -----------------------------------------------------------------------------------------------------------------------------------------------------
 
 perform_pca <- function(provided_dataset) {
-  provided_dataset %>% 
+  provided_dataset %>%
     select(where(is.numeric)) %>% # retain only numeric columns
     prcomp(scale = TRUE, center = TRUE)
 }
@@ -80,7 +80,7 @@ perform_pca <- function(provided_dataset) {
 
 
 
-# make a pca rotation table. 
+# make a pca rotation table.
 make_rotation_table <- function(pca_fit) {
   pca_fit %>%
     tidy(matrix = "rotation")

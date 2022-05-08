@@ -9,7 +9,7 @@ library("cowplot", quietly = TRUE)
 library("ggthemes", quietly = TRUE)
 library("broom")
 library("hrbrthemes")
-#library("ggtech")
+# library("ggtech")
 library("pheatmap")
 library("ggrepel")
 
@@ -74,30 +74,31 @@ aug_dat_plot
 
 vis2 <- ggplot(
   data = aug_dat_plot,
-  mapping = aes(x = .fittedPC4, y = .fittedPC1, 
-                shape = factor(value), 
-                colour = factor(value),
-                label = .rownames)
+  mapping = aes(
+    x = .fittedPC4, y = .fittedPC1,
+    shape = factor(value),
+    colour = factor(value),
+    label = .rownames
+  )
 ) +
   # make a scatter plot
   geom_point(size = 3, alpha = 0.8, position = "jitter") +
-  
   geom_label_repel(
     mapping = aes(label = .rownames),
     hjust = 1, nudge_x = -0.02,
     max.overlaps = 10,
     color = "#904C2F"
-  )+
+  ) +
   # edit the legend title and contents.
   scale_fill_discrete(name = "value", labels = c("0", "1")) +
-  
+
   # set the theme to classic
   theme_classic(
     base_family = "Times",
     base_size = 8
   ) +
   theme_minimal() +
-  
+
   # put the legend at the bottom and justify to the center.
   theme(
     legend.position = "top",
@@ -106,12 +107,13 @@ vis2 <- ggplot(
   scale_x_continuous(name = "Principal Component 1 : 24.0 %", limits = c(-10, 10)) +
   scale_y_continuous(name = "Principal Component 4 : 5.83 %", limits = c(-15, 20)) +
   # change the limits on the x and y axis, and keep the title.
-  
+
   # final colour palette.
   scale_colour_excel_new() +
   labs(
     title = "Principal Components Analysis",
-    subtitle = "Explained Variance for each Pricipal Component")
+    subtitle = "Explained Variance for each Pricipal Component"
+  )
 
 vis2
 
@@ -151,21 +153,21 @@ my_grand_pca_table %>%
 vis3 <- my_grand_pca_table %>%
   ggplot(mapping = aes(x = PC1, y = PC2)) +
   geom_point(alpha = 0.5, colour = "darkblue") +
-  
+
   # Add some text with the gene names.
   # geom_label_repel(
   #  mapping = aes(label = column),
   #  hjust = 1, nudge_x = -0.02, color = "#904C2F") +
-  
+
   # Spruce
   theme_classic(
     base_family = "Helvetica",
     base_size = 12
   ) +
-  
+
   # fix aspect ratio to 1:1
   coord_fixed() +
-  
+
   # change the font size of the axes.
   theme_minimal_grid(12) +
   labs(
@@ -200,18 +202,18 @@ vis4 <- pca_fit %>%
   tidy(matrix = "eigenvalues") %>%
   # Make a bar plot of the principal components.
   ggplot(mapping = aes(x = PC, y = percent)) +
-  
+
   # make a bar plot
   geom_col(colour = "darkblue", fill = "#56B4E8", alpha = 0.5) +
-  
+
   # Add a line and then some points.
   geom_line() +
   geom_point(shape = 21, color = "black", fill = "#69b3a2", size = 2) +
-  
+
   # Adjust the x axis and the y axis.
   scale_x_continuous(breaks = 1:20, limits = c(0, 20)) +
   scale_y_continuous(labels = scales::percent_format(), expand = expansion(mult = c(0, 0.01))) +
-  
+
   # Add a grid
   theme_minimal_hgrid(12) +
   theme_classic(
@@ -221,7 +223,7 @@ vis4 <- pca_fit %>%
   theme(
     axis.text.x = element_text(angle = 50, hjust = 1, size = 7, vjust = 1)
   ) +
-  
+
   # Add some labels.
   labs(
     y = "Variance explained by each PC",

@@ -10,11 +10,11 @@ library(vroom, quietly = TRUE)
 library(tidyr)
 library(stringr, quietly = TRUE)
 
-# Set the working directory to the path containing the project files. 
-#The working directory is above the R folder (here called Project)
+# Set the working directory to the path containing the project files.
+# The working directory is above the R folder (here called Project)
 
 # Define functions  -------------------------------------------------------
-source(file ="R/99_project_functions.R")
+source(file = "R/99_project_functions.R")
 
 # Load data ---------------------------------------------------------------
 west_raw <- load("data/_raw/west.RData")
@@ -44,5 +44,3 @@ write_tsv(
   x = my_raw_data_renamed,
   file = "data/01_my_data.tsv"
 )
-
-
