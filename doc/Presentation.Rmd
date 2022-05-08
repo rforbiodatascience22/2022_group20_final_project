@@ -4,17 +4,10 @@ author: "Miss Oriade Latifah Simpson"
 date: "Spring 2022"
 output:
   slidy_presentation: default
-  pdf_document: default
   html_document: default
 ---
 
 ### Group Number 20
-
-slidy_presentation: default
-Note: ioslides_presentation not working, only slidy_presentation working at the moment. 
-*html_document ioslides_presentation. 10 slides in 10 minutes.
-
-***
 
 ### Introduction
 
@@ -28,45 +21,51 @@ Gene expression assays come from DNA microarray analysis of breast cancer sample
 
 The paper explains that Breast cancer tumours can be classified based on "eostregen receptor status".
 
-The Breast cancer tumour samples were classidied based on the "eostregen receptor status".
+The Breast cancer tumour samples were classified based on the "oestrogen receptor status".
 
-In total, 49 tumours were classified as eostregen receptor positive or eostregen receptor negative. 
+In total, 49 tumours were classified as oestrogen receptor positive or oestrogen receptor negative. 
 
-Note, the gene expression data is based on the eostregen receptor genes. 
-
-***
+Note, the gene expression data is based on the oestrogen receptor genes. 
 
 This information may be given to doctors in order to help them make better clinical decisions when treating patients. 
 
-The aim in this project is to communicate insights, explain why I decided on a particular pathway in the analysis, amd to reproduce results from the data used in this research paper. 
+The aim in this project is to communicate insights, explain why I decided on a particular pathway in the analysis, and to reproduce results from the data used in this research paper. 
 
 Raw data was processed during the data analysis in order to start the initial steps of overcoming challenging problems in coding. 
 
 Decisions were made with regards to data processing and the reasons for these decisions are mentioned below. 
 
-***
 
 ### Materials and Methods
 
 The data used was microarray data contained in an .RData file in the following Github repository: https://github.com/ramhiser/datamicroarray/blob/master/data/west.RData
 
-The R code was separated into six scripts and the HPC Cluster format outlined in the instructions was implemented. This bio data set required loading, cleaning and tidying, augmenting, modelling and visualisation.  
+The R code was separated into six scripts and the HPC Cluster format outlined in the instructions was implemented.
 
-The process of arriving at results in a reproducible manner was important, especially was the scripts were run several times after changes were made. The code in the scripts was refined by the use of functions. The functions were created to aid reproducibility. These functions were evetually bundled up into a package. 
+This bio data set required: 
 
-***
++ loading, 
++ cleaning 
++ tidying
++ augmenting
++ modelling
++ visualisation.  
+
+The process of arriving at results in a reproducible manner was important, especially was the scripts were run several times after changes were made. The code in the scripts was refined by the use of functions. 
+
+The functions were created to aid reproducibility. These functions were evetually bundled up into a package. 
+
 
 **Flow chart of the data journey**
 
 ![](Image/FlowChart2022.png){width=75%}
 
-***
-
 Over thirteen packages were used to aid in this analysis pipeline, including packages in the tidyverse, golem, reactable and packages for styling the code such as the stylr package. 
 
-The statistical methods used in the research paper included binary regression models, singular value decompositions and stochastic regularization using Bayesian Analysis. 
+The statistical methods used in the research paper included binary regression models, 
+singular value decompositions and stochastic regularization using Bayesian Analysis. 
 
-The estimated vector was important for scoring genes in regards to their contribution to the classification. 
+The estimated vector (value/outcome) was important for scoring genes in regards to their contribution to the classification. 
 
 It is mentioned in the research paper that arrays were screened in order to find the first 100 genes that correlated the most with outcome, to reduce the noise produced by genes that were not expressed. 
 
@@ -76,7 +75,7 @@ The modelling methods used were principal components analysis, K-Means clusterin
 
 ### Results
 
-The  data was processed several in stages. 
+The  ata was processed several in stages. 
 
 During the first round of analysis, the unexpressed genes were not filtered out of my initial analysis.
 
@@ -84,7 +83,6 @@ I was yet to perform a thorough comparison with the statistical methods used in 
 
 
 ![](Image/first_visualisation1.png){width=45%} ![](Image/first_visualisation3.png){width=45%} 
-
 
 There was a lot of noise due to genes that were not significantly expressed being included in the analysis. 
 The analysis was run again once these genes had been filtered out.
@@ -97,7 +95,6 @@ In the research paper, the researchers performed a pairwise factor analysis of 1
 In comparison with the research paper, the Principal Component Analysis visualisation I created was slightly improved in terms of the colour scheme chosen and the size of the points.(**right**)
 
 ![](Image/factor_analsis.png){width=45%} ![](../results/visualisation2.png){width=45%}
-
 
 
 PCA, an unsupervised learning method which finds patterns in the data was used, because it simplifies the complexity in high-dimensional datasets by transforming the data into fewer dimensions.
@@ -114,12 +111,7 @@ In addition to this Github repository and the presentation, I created a package 
 
 I also produced a Shiny Application called `ShinyTwenty`. This application can be found at the Github repository: https://github.com/rforbiodatascience22/ShinyTwenty. The application shows rendered interactive plots and visualisations of the data.
 
-***
 
 ### Discussion 
 
 It was computationally intensive to perform the modelling part of the analysis given there were 7130 features and 49 observations of data. Because of this computational expense I had challenges in finding a workaround to deploy the application online. 
-
-***
-
-
