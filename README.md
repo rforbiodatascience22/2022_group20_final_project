@@ -1,11 +1,23 @@
-# 2022 Group Number 20 Final Project Folder 
 
-A *Public* Repository :
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- badges: start -->
 
-### Contents
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+<!-- badges: end -->
 
-+ A project
-+ A presentation
-+ A package 
-+ A Shiny App 
-+ A Github ReadMe
+### Group Number : 20
+
+**May 2022**
+
+### Final Project
+
+------------------------------------------------------------------------
+
+If you encounter a clear bug, please file an issue with a minimal
+reproducible example on GitHub. For questions and other discussion,
+please email `s172084@dtu.dk`
+
+Please note that this project is released with a Contributor Code of
+Conduct. By participating in this project you agree to abide by its
+terms.
